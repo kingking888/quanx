@@ -15,4 +15,8 @@ var body = JSON.parse($response.body);
 var timestamp = Math.round((new Date()).valueOf()/1000); //当前时间戳
 body.data.records[0]["reportTime"] = goodtime(new Date((timestamp-2*3600-15*60-22)*1000));
 body.data.records[0]["sampleTime"] = goodtime(new Date((get0(timestamp)-4*3600-25*60-35)*1000));
+
+body.data.records.push(body.data.records[0]);
+body.data.records.push(body.data.records[0]);
+
 $done({body:JSON.stringify(body)});
